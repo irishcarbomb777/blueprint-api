@@ -38,16 +38,24 @@ functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
   # - path: url path is /notes
   # - method: POST request
-  create2:
-    handler: create2.main
-    events:
-      - http:
-          path: notes
-          method: post
   
-  create:
-    handler: create.main
+  createMockSpec:
+    handler: createMockSpec.main
     events:
       - http:
           path: mockupgen
           method: post
+  
+  getMockSpec:
+    handler: getMockSpec.main
+    events:
+      - http:
+          path: mockupgen/{mockupId}
+          method: get
+    
+  listMockSpecs:
+    handler: listMockSpecs.main
+    events:
+      - http:
+          path: mockupgen
+          method: get
